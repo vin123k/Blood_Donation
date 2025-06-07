@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Blood Group once</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('donation6.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: rgba(220, 53, 69, 0.8); /* Semi-transparent red background */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            margin: 50px auto;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* White background with slight transparency */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .blood-group {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+        .blood-group button {
+            padding: 15px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            background-color: #dc3545;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .blood-group button:hover {
+            background-color: #c82333;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .back-btn {
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .back-btn:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- "Choose Your Blood Group" heading removed -->
+    </header>
+
+    <div class="container">
+        <h1>Select Your Blood Group</h1>
+        <form id="bloodGroupForm" action="/find_donors" method="POST">
+            <input type="hidden" id="blood_group" name="blood_group" value=""> 
+        <div class="blood-group">
+            <button onclick="selectBloodGroup('O+')">O+</button>
+            <button onclick="selectBloodGroup('O-')">O-</button>
+            <button onclick="selectBloodGroup('A+')">A+</button>
+            <button onclick="selectBloodGroup('A-')">A-</button>
+            <button onclick="selectBloodGroup('B+')">B+</button>
+            <button onclick="selectBloodGroup('B-')">B-</button>
+            <button onclick="selectBloodGroup('AB+')">AB+</button>
+            <button onclick="selectBloodGroup('AB-')">AB-</button>
+        </div>
+
+        <!-- Back Button at the bottom -->
+        <a href="javascript:history.back()" class="back-btn">Back</a>
+    </div>
+
+    <footer>
+        <!-- Footer content removed -->
+    </footer>
+
+    <!-- <script>
+        function selectBloodGroup(group) {
+            alert(`You selected ${group} blood group.`);
+            // Redirect or perform actions based on blood group
+        }
+    </script> -->
+    <script>
+        function selectBloodGroup(group) {
+            // Set the selected blood group in the hidden input
+            document.getElementById('blood_group').value = group;
+
+            // Submit the form
+            document.getElementById('bloodGroupForm').submit();
+        }
+    </script>
+</body>
+</html>

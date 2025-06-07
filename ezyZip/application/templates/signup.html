@@ -1,0 +1,108 @@
+{%extends "index.html"%}{%block title%}Signup{%endblock%}
+{%block content%}
+<h3 align ='center'>Signup</h3>
+<form method="post">
+    <div class="form-group">
+     <label for="firstname">First-Name</label>
+     <input type="text"
+     class="form-control"
+     id="firstname"
+     name="firstname"
+     placeholder="Enter first name"
+     >
+    </div>
+
+    <div class="form-group">
+        <label for="lastname">Last-Name</label>
+        <input type="text"
+        class="form-control"
+        id="lastname"
+        name="lastname"
+        placeholder="Enter last name">
+    </div>
+
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Enter your email-id">
+    </div>
+
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number"
+        class="form-control"
+        id="age"
+        name="age"
+        placeholder="Enter your age">
+    </div>
+
+    <div class="form-group">
+        <label for="phone">Phone-no</label>
+            <input type="tel"
+            class="form-control"
+            id="phone"
+            name="phone"
+            placeholder="Enter your mobile number">
+        
+    </div>
+
+    <div class="form-group">
+        <label for="state">State</label>
+        <input type="text"
+        class="form-control"
+        id="state"
+        name="state"
+        placeholder="Enter your state">
+    </div>
+
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text"
+        class="form-control"
+        id="city"
+        name="city"
+        placeholder="Enter your city">
+    </div>
+
+    <div class="form-group">
+        <label for="blood group">Choose your blood Group</label>
+        <select id="blood group" name="blood group">
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+        <label for="password1">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password1"
+          name="password1"
+          placeholder="Enter password"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password2">Password (Confirm)</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password2"
+          name="password2"
+          placeholder="Confirm password"
+        />
+      </div>
+    <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{%endblock%}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Blood Component</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('donation6.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: rgba(220, 53, 69, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            margin: 50px auto;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .blood-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+        .blood-group button {
+            padding: 15px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            background-color: #dc3545;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .blood-group button:hover {
+            background-color: #c82333;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .back-btn {
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .back-btn:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Optional header title -->
+    </header>
+
+    <div class="container">
+        <h1>Select Blood Component</h1>
+        <form id="bloodComponentForm" action="/select_type" method="POST">
+            <input type="hidden" id="blood_component" name="blood_component" value=""> 
+            <div class="blood-group">
+                <button type="button" onclick="selectComponent('whole_blood')">Whole Blood</button>
+                <button type="button" onclick="selectComponent('red_blood')">Red Blood Cells</button>
+                <button type="button" onclick="selectComponent('plasma')">Plasma</button>
+                <button type="button" onclick="selectComponent('platelets')">Platelets</button>
+            </div>
+
+            <a href="javascript:history.back()" class="back-btn">Back</a>
+        </form>
+    </div>
+
+    <footer>
+        <!-- Optional footer content -->
+    </footer>
+
+    <script>
+        function selectComponent(component) {
+            document.getElementById('blood_component').value = component;
+            document.getElementById('bloodComponentForm').submit();
+        }
+    </script>
+</body>
+</html>

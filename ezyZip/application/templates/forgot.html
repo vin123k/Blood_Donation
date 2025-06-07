@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter your new passwords</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif; 
+  background-image: url("{{ url_for('static', filename='images/donation11.jpg') }}"), url("{{ url_for('static', filename='images/donation9.jpg') }}");
+  background-size: 50% 100%, 50% 100%; /* Adjust size of both images */
+  background-repeat: no-repeat;
+  background-position: left center, right center; /* Position donation11 on the left and donation12 on the right */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.8); /* White background with opacity */
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    /* .input-field {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    } */
+    .input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px; /* Rounded corners */
+  font-size: 16px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+    .button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+    .alert {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.5s, fadeOut 0.5s 3s; /* Fade in and fade out animations */
+      z-index: 1000;
+    }
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .alert-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+</head>
+<body>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div style="position: relative;">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% endwith %}
+  
+ 
+  <div class="login-container">
+    <div class="images">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Blood donation event"class="center">
+      
+  </div>
+   
+    <h2>Login</h2>
+    <form action="/forgot2" method="post">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password1" placeholder="Enter new password" class="input-field" required>
+    <br><br>
+        <label for="confirm-password">Confirm password</label>
+        <input type="password" id="confirm-password" name="password2" placeholder="Confirm new password" class="input-field" required>
+      <button type="submit" class="button">Login</button>
+    </form>
+    
+    
+  </div>
+
+  
+  
+
+</body>
+</html>

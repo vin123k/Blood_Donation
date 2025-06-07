@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Not Available</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('donation6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 100px auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #dc3545;
+        }
+        p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .info-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #856404;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .back-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+        .back-btn:hover {
+            background-color: #5a6268;
+        }
+        .submit-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+        .submit-btn:hover {
+            background-color: #c82333;
+        }
+        .alt-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .alt-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Component Not Available</h1>
+        <p>Sorry, the requested blood component (<strong>{{ blood_component }}</strong>) for group <strong>{{ blood_group }}</strong> is currently not available in our stock.</p>
+
+        <div class="info-box">
+            <p><strong>You can try contacting registered users who may be able to donate.</strong></p>
+            <a href="{{ url_for('auth.show_donors', group=blood_group) }}" class="btn alt-btn">Click here to view potential donors</a>
+
+        </div>
+
+        <!-- Form to take user to a different action (e.g., record a request) -->
+        <form action="/select_type" method="POST">
+            <input type="hidden" name="blood_group" value="{{ blood_group }}">
+            <input type="hidden" name="blood_component" value="{{ blood_component }}">
+            <!-- <button type="submit" class="btn submit-btn">Record My Request</button> -->
+        </form>
+
+        <!-- Redirect to another help or alternative page -->
+        <!-- <a href="/request_help" class="btn alt-btn">Request Help from Hospital</a> -->
+
+        <a href="javascript:history.back()" class="btn back-btn">Go Back</a>
+    </div>
+
+</body>
+</html>
+

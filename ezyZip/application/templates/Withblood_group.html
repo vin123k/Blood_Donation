@@ -1,0 +1,219 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Donors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .footer {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+    .back-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px 0;
+    }
+    .back-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Find Donors</h1>
+  </header>
+
+  <div class="container">
+    <h2>List of People with Blood Group O+</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email ID</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>John</td>
+          <td>Doe</td>
+          <td>johndoe@example.com</td>
+          <td>9876543210</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jane</td>
+          <td>Smith</td>
+          <td>janesmith@example.com</td>
+          <td>9123456789</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Michael</td>
+          <td>Johnson</td>
+          <td>michael.johnson@example.com</td>
+          <td>9988776655</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+    
+    <!-- <a href="index.html" class="back-btn">Back to Home</a> -->
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024 Blood Donation Network. All rights reserved.</p>
+  </div>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Donors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .footer {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+    .back-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px 0;
+    }
+    .back-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Find Donors</h1>
+  </header>
+
+  <div class="container">
+    <h2>List of People with Blood Group {{ blood_group }}</h2>
+    {% if people %}
+    <table>
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <!-- <th>Email ID</th>
+          <th>Phone Number</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for person in people %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ person.first_name }}</td>
+          <td>{{ person.last_name }}</td>
+          <!-- <td>{{ person.email }}</td>
+          <td>{{ person.phone }}</td> -->
+          <td><a href="{{ url_for('auth.message', receiver_id=person.id) }}">Message</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No donors found for blood group {{ blood_group }}.</p>
+    {% endif %}
+    
+    <!-- <a href="index.html" class="back-btn">Back to Home</a> -->
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024 Blood Donation Network. All rights reserved.</p>
+  </div>
+
+</body>
+</html>
+
